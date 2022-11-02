@@ -5,14 +5,14 @@ const { remove_data_int, remove_data_str } = require("../functions");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("remove")
-    .setDescription("Remove")
+    .setDescription("指定したデータの削除")
     .addSubcommand((subcommand) =>
       subcommand
-        .setName("change_from_name")
+        .setName("from_name")
         .setDescription("名前を使い削除します")
         .addStringOption((options) =>
           options
-            .setName("remove_name")
+            .setName("name")
             .setDescription(
               "データ内の名前以外の場合には、消すことができません"
             )
@@ -21,11 +21,11 @@ module.exports = {
     )
     .addSubcommand((subcommand) =>
       subcommand
-        .setName("change_from_number")
+        .setName("from_number")
         .setDescription("四桁番号")
         .addIntegerOption((options) =>
           options
-            .setName("remove_number")
+            .setName("number")
             .setDescription(
               "データ内の番号以外の場合には、消すことができません"
             )
@@ -34,8 +34,8 @@ module.exports = {
     ),
   async execute(interaction) {
     try {
-      if (interaction.options.getSubcommand() === "change_from_name") {
-        const name = interaction.options.getString("remove_name");
+      if (interaction.options.getSubcommand() === "from_name") {
+        const name = interaction.options.getString("name");
         const bool_remove = remove_data_str(name);
         if (!bool_remove) {
           await interaction.reply("名前がデータ上に存在しません");
@@ -43,7 +43,7 @@ module.exports = {
           await interaction.reply("正常に終了しました");
         }
       } else {
-        const number = interaction.options.getInteger("remove_number");
+        const number = interaction.options.getInteger("number");
         const number_bool = b_data[String(number)] != null;
         if (number_bool) {
           const bool_remove = remove_data_int(number);

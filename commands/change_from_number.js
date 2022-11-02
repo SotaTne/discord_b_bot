@@ -6,7 +6,6 @@ const {
   change_remove_data,
   change_add_data,
 } = require("../functions");
-const add = require("./add");
 
 module.exports = {
   data: new SlashCommandBuilder()

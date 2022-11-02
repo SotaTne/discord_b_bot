@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const { token } = require("./config.json");
-const functions = require("./functions");
+const { server_run } = require("./keep_alive");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -17,6 +17,8 @@ for (const file of commandFiles) {
   const command = require(filePath);
   client.commands.set(command.data.name, command);
 }
+
+server_run();
 
 client.once("ready", () => {
   console.log("Ready!");

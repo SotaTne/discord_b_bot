@@ -1,19 +1,23 @@
 {
   "name": "discord_js",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sonyzach/usfm-validator.git"
+    "url": "git+https://github.com/sonyzach/usfm-validator.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.24.0"
-  }
+  "dependencies": {
+    "discord.js": "^14.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/sonyzach/usfm-validator/issues"
+  },
+  "homepage": "https://github.com/sonyzach/usfm-validator#readme",
+  "description": ""
 }

@@ -7,8 +7,8 @@ module.exports = {
     .setDescription("呼び出しをします")
     .addSubcommand((subcommand) =>
       subcommand
-        .setName("call_num")
-        .setDescription("出席番号と名前で指定し、呼び出します")
+        .setName("number")
+        .setDescription("四桁番号で指定し、呼び出します")
         .addIntegerOption((option) =>
           option
             .setName("number")
@@ -18,7 +18,7 @@ module.exports = {
     )
     .addSubcommand((subcommand) =>
       subcommand
-        .setName("call_style")
+        .setName("style")
         .setDescription("呼び出すオプションを指定し、呼び出します")
         .addStringOption((option) =>
           option
@@ -35,7 +35,7 @@ module.exports = {
           option
             .setName("call_num")
             .setDescription(
-              "いくつ呼ぶか(allの場合は何を入れてもすべて呼び出す)"
+              "いくつ呼ぶか(すべての場合は何を入れてもすべて呼び出す)"
             )
             .setRequired(true)
         )
@@ -43,7 +43,7 @@ module.exports = {
 
   async execute(interaction) {
     try {
-      if (interaction.options.getSubcommand() === "call_style") {
+      if (interaction.options.getSubcommand() === "style") {
         const return_str = call_data(
           interaction.options.getString("style"),
           interaction.options.getInteger("call_num")

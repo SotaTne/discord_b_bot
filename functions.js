@@ -187,7 +187,7 @@ const out_put_str = (input_data) => {
       out_str += `四桁番号 : ${input_data[i].number} , 名前 : ${input_data[i].name}, バストサイズ : ${input_data[i].b_size}`;
     }
   }
-  return out_str;
+  return `${out_str}\n以上です`;
 };
 
 const which_big = (input_1, input_2, big_bool) => {
